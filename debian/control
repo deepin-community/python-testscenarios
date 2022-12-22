@@ -1,0 +1,34 @@
+Source: python-testscenarios
+Section: python
+Priority: optional
+Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
+Uploaders:
+ Thomas Goirand <zigo@debian.org>,
+Build-Depends:
+ debhelper-compat (= 9),
+ dh-python,
+ openstack-pkg-tools (>= 99~),
+ python3-all,
+ python3-setuptools,
+ python3-testtools,
+Standards-Version: 4.2.0
+Vcs-Browser: https://salsa.debian.org/openstack-team/python/python-testscenarios
+Vcs-Git: https://salsa.debian.org/openstack-team/python/python-testscenarios.git
+Homepage: https://launchpad.net/testscenarios
+
+Package: python3-testscenarios
+Architecture: all
+Depends:
+ python3-testtools,
+ ${misc:Depends},
+ ${python3:Depends},
+Provides:
+ ${python3:Provides},
+Description: Dependency injection for Python unittest tests - Python 3.x
+ testscenarios provides clean dependency injection for Python unittest style
+ tests. This can be used for interface testing (testing many implementations
+ via a single test suite) or for classic dependency injection (provide tests
+ with dependencies externally to the test code itself, allowing easy testing
+ in different situations).
+ .
+ This package contains the Python 3.x module.

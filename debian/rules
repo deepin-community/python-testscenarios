@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+UPSTREAM_GIT := https://github.com/testing-cabal/testscenarios.git
+include /usr/share/openstack-pkg-tools/pkgos.make
+
+%:
+	dh $@  --with python3
+
+override_dh_auto_clean:
+	rm -rf build
+	find . -iname '*.pyc' -delete
+	for i in $$(find . -type d -iname __pycache__) ; do rm -rf $$i ; done
+
+override_dh_auto_build:
+	echo "Do nothing..."
+
+override_dh_auto_install:
+	pkgos-dh_auto_install --no-py2

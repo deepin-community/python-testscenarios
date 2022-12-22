@@ -1,0 +1,22 @@
+Description: Fix Makefile to use py3
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2019-09-14
+
+--- python-testscenarios-0.5.0.orig/Makefile
++++ python-testscenarios-0.5.0/Makefile
+@@ -1,5 +1,5 @@
+ PYTHONPATH:=$(shell pwd):${PYTHONPATH}
+-PYTHON ?= python
++PYTHON ?= python3
+ 
+ all: check
+ 
+@@ -17,6 +17,6 @@ tags: testscenarios/*.py testscenarios/t
+ 	ctags -R testscenarios/
+ 
+ release:
+-	python setup.py sdist bdist_wheel upload -s
++	python3 setup.py sdist bdist_wheel upload -s
+ 
+ .PHONY: all check release
